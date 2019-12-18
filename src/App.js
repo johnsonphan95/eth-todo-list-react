@@ -14,7 +14,6 @@ function App() {
   }, [account, balance])
 
   const loadBlockchainData = async () => {
-    console.log('called')
     let web3Provider;
     if (window.ethereum) {
       web3Provider = window.ethereum;
