@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useReducer} from 'react';
+import React, {useState, useEffect} from 'react';
 import { TODO_LIST_ABI, TODO_LIST_ADDRESS } from './config';
 import Web3 from 'web3';
 import './App.css';
