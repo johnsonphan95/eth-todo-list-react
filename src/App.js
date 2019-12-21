@@ -72,9 +72,19 @@ function App() {
 
   const createTask = (content) => {
     setIsLoading(true);
+    console.log('create')
     todoList.methods.createTask(content).send({from: account})
     .once('receipt', (receipt) => {
       setIsLoading(false)
+    })
+  }
+
+  const toggleCompleted = (taskId) => {
+    setIsLoading(true);
+    console.log('toggle')
+    todoList.methods.toggleCompleted(taskId).send({ from: account })
+    .once('receipt', (receipt) => {
+      setIsLoading(false);
     })
   }
 
@@ -84,7 +94,7 @@ function App() {
       <h1>address: {account}</h1> 
       <h1>balance: {balance}</h1>
       <h1>Task Count: {taskCount}</h1>
-      <TodoList tasks={tasks} createTask={createTask} />
+      <TodoList tasks={tasks} createTask={createTask} toggleCompleted={toggleCompleted}/>
     </div>
   );
 }

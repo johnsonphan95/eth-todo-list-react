@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const TodoList = ({tasks, createTask}) => {
+const TodoList = ({tasks, createTask, toggleCompleted}) => {
     const [task, setTask] = useState('');
 
     const handleChange = (e) => {
@@ -20,7 +20,14 @@ const TodoList = ({tasks, createTask}) => {
             {tasks.map((task, key) => {
                 return (
                 <div key={key}>
-                    <input type="checkbox"></input>
+                    <input
+                    type="checkbox"
+                    name={task.id}
+                    defaultChecked={task.completed}
+                    onClick={(e) => {
+                        toggleCompleted(task.id)
+                    }}
+                    />
                     <span>{task.content}</span>
                 </div>
                 )
